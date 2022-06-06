@@ -80,14 +80,15 @@ class IOCache(Cache):
     size = '1kB'
     tgts_per_mshr = 12
 
+# JAKE
 class L3Cache(Cache):
-    assoc = 8
-    tag_latency = 35
-    data_latency = 35
-    response_latency = 35
-    mshrs = 20
-    tgts_per_mshr = 12
-    write_buffers = 10
+    assoc = 16
+    tag_latency = 32
+    data_latency = 32
+    response_latency = 32
+    mshrs = 32
+    tgts_per_mshr = 20
+    write_buffers = 16
 
 class PageTableWalkerCache(Cache):
     assoc = 2

@@ -165,7 +165,7 @@ class L2XBar(CoherentXBar):
     # This specialisation of the coherent crossbar is to be considered
     # the point of unification, it connects the dcache and the icache
     # to the first level of unified cache.
-    point_of_unification = False
+    point_of_unification = True
 
 # Defining L3XBar to connect L2 to L3 cache
 class L3XBar(CoherentXBar):
@@ -176,7 +176,7 @@ class L3XBar(CoherentXBar):
     response_latency = 2
     snoop_response_latency = 2
     snoop_filter = SnoopFilter(lookup_latency = 0)
-    point_of_unification = True
+    point_of_unification = False
 
 # One of the key coherent crossbar instances is the system
 # interconnect, tying together the CPU clusters, GPUs, and any I/O

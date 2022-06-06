@@ -1,3 +1,7 @@
 {
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "python.analysis.extraPaths": [
+        "./build/X86/python",
+        "./tests/gem5/configs"
+    ]
 }

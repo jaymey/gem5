@@ -28,10 +28,25 @@ class L1DCache(L1Cache):
         self.cpu_side = cpu.dcache_port
 
 class L2Cache(Cache):
-    size = '256kB'
+    size = '512kB'
     assoc = 8
     tag_latency = 20
     data_latency = 20
+    response_latency = 20
+    mshrs = 20
+    tgts_per_mshr = 12
+
+    def connectCPUSideBus(self, bus):
+        self.cpu_side = bus.mem_side_ports
+
+    def connectMemSideBus(self, bus):
+        self.mem_side = bus.cpu_side_ports
+
+class L3Cache(Cache):
+    size = '2MB'
+    assoc = 16
+    tag_latency = 30
+    data_latency = 30
     response_latency = 20
     mshrs = 20
     tgts_per_mshr = 12

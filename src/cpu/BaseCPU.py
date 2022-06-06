@@ -54,6 +54,10 @@ from m5.objects.SubSystem import SubSystem
 from m5.objects.ClockDomain import *
 from m5.objects.Platform import Platform
 
+#--Jake
+from m5.objects.XBar import L3XBar
+#--Jake
+
 default_tracer = ExeTracer()
 
 if buildEnv['TARGET_ISA'] == 'sparc':
@@ -233,6 +237,17 @@ class BaseCPU(ClockedObject):
         self.l2cache = l2c
         self.toL2Bus.mem_side_ports = self.l2cache.cpu_side
         self._cached_ports = ['l2cache.mem_side']
+
+    #--Jake
+    # def addThreeLevelCacheHierarchy(self, ic, dc, l3c, iwc=None, dwc=None,
+    #                                 xbar=None):
+    #     self.addTwoLevelCacheHierarchy(ic, dc, iwc, dwc)
+    #     self.toL3Bus = xbar if xbar else L3XBar()
+    #     self.connectCachedPorts(self.toL3Bus)
+    #     self.l3cache = l3c
+    #     self.toL3Bus.master = self.l3cache.cpu_side
+    #     self._cached_ports = ['l3cache.mem_side']
+    #--Jake
 
     def createThreads(self):
         # If no ISAs have been created, assume that the user wants the

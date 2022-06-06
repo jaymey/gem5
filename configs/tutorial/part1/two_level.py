@@ -2,7 +2,7 @@
 import m5
 # import all of the SimObjects
 from m5.objects import *
-from caches import *
+from configs.myConfig.caches import *
 
 # create the system we are going to simulate
 system = System()
